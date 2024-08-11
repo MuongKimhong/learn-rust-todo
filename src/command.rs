@@ -34,7 +34,6 @@ pub fn display_help_message(options: HelpMessageOptions) -> () {
     if options.error {
         print!("\n--> Unknown command <{}>", options.entered_command);
     }
-
     let msg = "
     \n--> Please see all available command options below:\n\
     <-exit>   : exit the app,\n\

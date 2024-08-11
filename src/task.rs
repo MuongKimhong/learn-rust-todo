@@ -7,6 +7,16 @@ pub struct Task {
     completed: bool,
 }
 
+pub trait Display {
+    fn display_message(&self) -> String; 
+}
+
+impl Display for Task {
+    fn display_message(&self) -> String {
+        return format!("{}. {}, completed: {}", self.index, self.description, self.completed);
+    }
+}
+
 impl Task {
     fn new(index: u8, description: String) -> Task {
         return Task {
@@ -29,7 +39,7 @@ pub fn list_all_tasks(all_tasks: &Vec<Task>) -> () {
     } else {
         println!("To-do Tasks:\n");
         for task in all_tasks {
-            println!("{}. {}, completed: {}", task.index, task.description, task.completed);
+            println!("{}", task.display_message());
         }
     } 
 }
